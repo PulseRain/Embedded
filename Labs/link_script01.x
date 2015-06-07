@@ -9,6 +9,7 @@ SECTIONS
 {
 
   my_code : 
+
   {*(.text);} >SRAM
 
   my_data : 
@@ -16,7 +17,8 @@ SECTIONS
   
   .bss :
     {*(.bss);} >DDR
-    
-   other :
-    {*(.*);} >SRAM   
+
+  other :
+    {*(.*);} >SRAM 
+
 }
