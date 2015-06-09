@@ -1,4 +1,3 @@
-
 gcc -fno-exceptions -m32 -c lost.c 
 objcopy --remove-section=.comment lost.o
 ld -o my_output01.elf -T link_script01.x lost.o 

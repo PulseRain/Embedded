@@ -34,5 +34,6 @@ cp -f ./Makefile.in ./release
 cp -f ./configure.ac ./release
 cp -av src ./release
 cd release
+
 echo " done"
 echo "==========================================="
