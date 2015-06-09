@@ -1,4 +1,4 @@
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS = foreign subdir-objects
 bin_PROGRAMS = demo
 SUBDIRS = .
 demo_SOURCES = src/align/align.c src/common/about.c src/common/CRC32.c src/state_machine/state_machine.c src/main/main.c
