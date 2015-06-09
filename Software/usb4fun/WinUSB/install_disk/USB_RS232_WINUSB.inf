@@ -1,0 +1,112 @@
+;============================================================================
+; WINUSB Inf file for USB/RS232 Device
+;============================================================================
+
+[Version]
+Signature="$Chicago$"
+Class = USB_RS232_Class
+ClassGuid={19da8c22-d94b-4385-8fe7-a19c530c8e98}
+DriverVer=08/03/2011, 1.0.15.0
+Provider = %MFG% 
+;;;; CatalogFile=MyCatFile.cat
+
+; ================== Class section ==================
+
+[ClassInstall32]
+Addreg=WINUSB_DeviceClassReg
+
+[WINUSB_DeviceClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%MFG% = USB_RS232_WinUSB,NTx86,NTamd64,NTia64
+
+[USB_RS232_WinUSB.NTx86]
+%USB\Device.DeviceDesc% =USB_Install, USB\VID_04B4&PID_7094
+
+[USB_RS232_WinUSB.NTamd64]
+%USB\Device.DeviceDesc% =USB_Install, USB\VID_04B4&PID_7094
+
+[USB_RS232_WinUSB.NTia64]
+%USB\Device.DeviceDesc% =USB_Install, USB\VID_04B4&PID_7094
+
+; =================== Installation ===================
+
+;[1]
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+;[2]
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+;[5]
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{25a72792-746e-4c40-8e78-d81b4a032f31}"
+
+
+;[6]
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================= Source Media Section =====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+3 = %DISK_NAME%,,,\ia64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+
+[SourceDisksFiles.ia64]
+WinUSBCoInstaller2.dll=3
+WdfCoInstaller01009.dll=3
+; =================== Strings ===================
+
+[Strings]
+MFG="SuperMan"
+USB\Device.DeviceDesc="USB RS232 using WinUSB only"
+WinUSB_SvcDesc="USB RS232 WinUSB"
+DISK_NAME="USB RS232 Install Disk"
+ClassName="USB_RS232_Class"

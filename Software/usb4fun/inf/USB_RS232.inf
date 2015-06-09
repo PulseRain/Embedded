@@ -1,0 +1,79 @@
+;============================================================================
+; Inf file for USB/RS232 Device
+;============================================================================
+
+[Version] 
+Signature="$Chicago$" 
+Class = Ports ;(COM & LPT ports) 
+ClassGuid = {4d36e978-e325-11ce-bfc1-08002be10318}
+
+Provider=%MFG% 
+DriverVer=07/11/2011, 1.0.26.0
+
+[Manufacturer] 
+%MFG%=USB_RS232_DEMO, NTamd64 
+
+[USB_RS232_DEMO] 
+%USB_RS232_DEMO%=DeviceInstall, USB\VID_04B4&PID_7094
+
+[USB_RS232_DEMO.NTamd64] 
+%USB_RS232_DEMO%=DeviceInstall, USB\VID_04B4&PID_7094
+
+[DestinationDirs] 
+DefaultDestDir=12 ; %SystemRoot%\system32\drivers
+
+[DeviceInstall.NTx86]
+CopyFiles=DeviceInstall.NTx86.Copy 
+AddReg=DeviceInstall.NTx86.AddReg 
+
+[DeviceInstall.NTx86.Copy] 
+usbser.sys 
+
+[DeviceInstall.NTx86.AddReg] 
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+
+[DeviceInstall.NTx86.Services] 
+AddService = usbser, 0x00000002, ServiceInstall ; Assign the named service as the PnP function driver 
+
+[ServiceInstall] 
+DisplayName = %ServiceDescription% 
+ServiceType =   1 ; SERVICE_KERNEL_DRIVER 
+StartType =     3 ; SERVICE_DEMAND_START 
+ErrorControl =  1 ; SERVICE_ERROR_NORMAL 
+ServiceBinary = %12%\usbser.sys 
+LoadOrderGroup = Base 
+
+[Strings] 
+MFG = "SuperMan" 
+USB_RS232_DEMO = "USB RS232 Demo" 
+ServiceDescription = "USB RS232 Driver"
+
+
+
+
+
+[DeviceInstall.NTamd64]
+include=mdmcpq.inf
+CopyFiles=DeviceCopyFiles.NTamd64
+AddReg=DeviceInstall.NTamd64.AddReg
+
+[DeviceCopyFiles.NTamd64]
+usbser.sys,,,0x20
+
+[DeviceInstall.NTamd64.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DeviceInstall.NTamd64.Services]
+AddService=usbser, 0x00000002, DeviceService.NTamd64
+
+[DeviceService.NTamd64]
+DisplayName=%ServiceDescription%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
