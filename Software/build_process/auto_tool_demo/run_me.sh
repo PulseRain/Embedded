@@ -32,7 +32,7 @@ cp -f ./configure ./release
 cp -f ./Makefile.am ./release
 cp -f ./Makefile.in ./release
 cp -f ./configure.ac ./release
-cp -av src ./release
+cp -a src ./release
 cd release;chmod 755 *
 
 echo " done"
