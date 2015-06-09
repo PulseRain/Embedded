@@ -7,12 +7,12 @@ rm -f demo
 rm -f demo.*
 
 aclocal
-cp -a /usr/share/automake-1.8/install-sh .
-cp -a /usr/share/automake-1.8/mkinstalldirs .
-cp -a /usr/share/automake-1.8/missing .
+cp -a /usr/share/automake-1.14/install-sh .
+cp -a /usr/share/automake-1.14/mkinstalldirs .
+cp -a /usr/share/automake-1.14/missing .
 touch NEWS AUTHORS ChangeLog
-cp -a /usr/share/automake-1.8/INSTALL .
-cp -a /usr/share/automake-1.8/COPYING .
+cp -a /usr/share/automake-1.14/INSTALL .
+cp -a /usr/share/automake-1.14/COPYING .
 
 automake --add-missing
 
