@@ -1,0 +1,19 @@
+TOPDIR := $(shell pwd)
+
+export TOPDIR
+
+
+obj = main/main.o 
+target = demo
+
+link_obj = state_machine/state_machine.o common/common.o align/align.o
+
+submodules = align state_machine
+submodules_sofa = common
+
+
+CROSS_LD = gcc
+
+CFLAGS += -I$(TOPDIR)/align -I$(TOPDIR)/state_machine
+
+include $(TOPDIR)/Rules.mak

@@ -1,0 +1,16 @@
+ifndef TOPDIR
+	TOPDIR := ..
+endif
+
+
+obj = test_main.o 
+target = test_main
+
+link_obj = state_machine.o $(TOPDIR)/common/common.o
+
+submodules += $(TOPDIR)/common $(TOPDIR)/state_machine
+
+CROSS_LD = gcc
+
+include $(TOPDIR)/Rules.mak
+

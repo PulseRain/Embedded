@@ -1,0 +1,43 @@
+CC = gcc
+AS = 
+LD = gcc
+
+CFLAGS += -I. -Icommon/include -Istate_machine -Ialign -g -W -DVMAJOR=1 -DVMINOR=3g -DDEBUG -DCONSOLE_PRINT=printf -DABOUT_CRC32=0x68DAC604
+LDFLAGS +=
+#LDFLAGS += -L/usr/lib/gcc/i686-pc-cygwin/3.4.4
+#LDFLAGS += -lgcc -lcygwin -luser32 -lkernel32 -ladvapi32 -lshell32 -lgcc
+
+#pattern rule
+
+	
+
+#== Put all the object files here
+obj = main/main.o \
+      common/CRC32.o \
+      common/about.o \
+      align/align.o \
+      state_machine/state_machine.o
+	 
+target = demo.exe 
+
+all: $(obj)
+	@echo "====> Linking $(target)"
+	@$(LD) $(LDFLAGS) $(obj) -o $(target) 
+	@chmod 755 $(target)
+	
+	
+	
+%.o : %.c
+	@echo "===> Building $@"
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
+	
+	
+	
+clean :
+	-@rm -vf $(target)
+	-@find . -type f \( -name "*.OBJ" -o -name "*.d" -o -name "*.o" -o -name "*.LST" -o -name "*.M51" \
+	                    -o -name "*.hex" -o -name "*.rsp" \) -exec rm -vf {} \;
+
+
+.PHONY: clean all

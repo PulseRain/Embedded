@@ -1,0 +1,13 @@
+obj = test_main.o 
+
+link_obj = common.o
+
+target = test_common
+
+CROSS_LD = gcc
+
+ifndef TOPDIR
+	TOPDIR := ..
+endif
+
+include $(TOPDIR)/Rules.mak

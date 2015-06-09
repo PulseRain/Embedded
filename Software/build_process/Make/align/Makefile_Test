@@ -1,0 +1,17 @@
+ifndef TOPDIR
+	TOPDIR := ..
+endif
+
+
+obj = test_main.o 
+target = test_main
+
+link_obj = align.o 
+
+submodules += $(TOPDIR)/align
+
+CROSS :=
+CROSS_LD := gcc
+export CROSS CROSS_LD
+include $(TOPDIR)/Rules.mak
+

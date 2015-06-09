@@ -1,0 +1,122 @@
+mainmenu "Firmware Configuration"
+
+config HAVE_DOT_CONFIG
+	bool
+	default y
+
+
+
+#=============================================================================
+#	Firmware Version 
+#=============================================================================
+
+menu "About"
+
+config PRODUCT_NAME
+	string "Product Name"
+	default "A Super Product"
+	help
+		Name of the Product
+
+
+config VMAJOR_STR
+	string "Major Version"
+	default "xx"
+	help
+	  Major Version for the firmware
+
+config VMINOR_STR
+	string "Minor Version"
+	default "xx"
+	help
+	  Minor Version for the firmware
+
+endmenu
+
+
+#=============================================================================
+#	Tools Setup
+#=============================================================================
+
+menu "Tools Setup"
+
+config CROSS_COMPILER_PREFIX
+	string "Cross Compiler prefix"
+	default "arm-elf-"
+	help
+	  Cross compiler pre-fix, such as arm-elf-, xscale_le-
+
+config APP_COMPILER_PREFIX
+	string "Cross Compiler prefix for App Build"
+	default "arm-uclibc-"
+	help
+	  Cross compiler pre-fix, such as arm-uclibc-, for application build.
+	  This is often used in the case where uclibc is preferred over standard
+	  C library.
+	  
+endmenu
+
+
+#=============================================================================
+#	Config all the modules in the firmware 
+#=============================================================================
+
+menu "Modules Configuration"
+
+config BUILD_WHOLE_IMAGE
+	bool "Build Whole Image"
+	default y
+	help
+		Build Whole Image
+
+
+
+config ENABLE_EVERYTHING
+	bool "Enable All Modules"
+	default n
+	depends on BUILD_WHOLE_IMAGE
+	select ENABLE_ALIGNMENT_MODULE
+	select ENABLE_STATE_MACHINE_MODULE
+	help
+		To enable all modules
+
+
+config ENABLE_ALIGNMENT_MODULE
+	bool "Enable Alignment Module"
+	default n
+	depends on BUILD_WHOLE_IMAGE
+	help
+		To Enable Alignment Module 
+
+
+config ENABLE_STATE_MACHINE_MODULE
+	bool "Enable State Machine Module"
+	default y
+	depends on BUILD_WHOLE_IMAGE
+	help
+		To Enable State Machine Module
+
+
+comment "---------------------------------"
+	depends on BUILD_WHOLE_IMAGE
+
+config CHECK_ABOUT_SIGNATURE
+	bool "Check About Signature"
+	default y
+	depends on BUILD_WHOLE_IMAGE
+	help
+		To check the integrity of about signature at startup
+	
+
+comment "===================================="
+
+config REBUILD_COMMON
+	bool "Rebuild Common Module"
+	default n
+	help 
+		Rebuild Common Module
+
+endmenu
+
+
+
