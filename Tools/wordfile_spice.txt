@@ -1,0 +1,52 @@
+
+/Lxx"Spice" Line Comment = * Line Comment Alt = $ Nocase File Extensions = SP HSP
+/Delimiters = ()+="' 	,
+/C1
+** .MEAS
+** .INC
+** .TRAN
+.TITLE
+.OPTION
+.IC
+.NODESET
+.PARAM
+.GLOBAL
+.SUBCKT
+.ENDS
+.DC
+.AC
+.SAVE
+.LOAD
+.DATA
+.TEMP
+.PRINT
+.PLOT
+.GRAPH
+.PROBE
+.MALIAS
+.MODEL
+.LIB
+.UNPROTECT
+.PROTECT
+.ALIAS
+.ALTER
+.DELETE
+.END
+.PZ
+.FFT
+.FOUR
+
+/C2
+
+
+/C3
+** PUL
+** SWEEP
+PWL
+SCALE
+DTEMP
+TRIG
+TARG
+WHEN
+AT
+VCR
