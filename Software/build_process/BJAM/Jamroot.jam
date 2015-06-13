@@ -1,0 +1,11 @@
+project demo
+    : requirements <include>common/include 
+                   <define>CONFIG_ENABLE_ALIGNMENT_MODULE 
+                   <define>CONFIG_ENABLE_STATE_MACHINE_MODULE 
+                   <define>CONFIG_CHECK_ABOUT_SIGNATURE 
+                   <define>PRODUCT_NAME="\"A Super Product\"" 
+                   <define>VMAJOR=1 
+                   <define>VMINOR=3g ;
+    
+using gcc ;
+exe demo : align//align state_machine//state_machine main//main common/about.c common/CRC32.c ;

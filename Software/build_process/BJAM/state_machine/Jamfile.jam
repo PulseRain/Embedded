@@ -1,0 +1,4 @@
+project state_machine ;
+
+obj state_machine : state_machine.c ;
+

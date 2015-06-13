@@ -1,0 +1,4 @@
+project align ;
+
+obj align : align.c ;
+

@@ -1,0 +1,5 @@
+project main 
+    : requirements <include>../align <include>../state_machine ;
+
+obj main : main.c ;
+
