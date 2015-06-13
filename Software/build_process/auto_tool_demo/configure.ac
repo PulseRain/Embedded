@@ -1,5 +1,4 @@
-AC_PREREQ([2.68])
-AC_INIT(auto_tool_demo, 1.0, rabbithole.hax4@gmail.com)
+AC_INIT(auto_tool_demo, 1.0, pulserain@pulserain.com)
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs.
