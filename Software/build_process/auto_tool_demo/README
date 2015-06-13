@@ -1,8 +1,7 @@
-Under Cygwin, try the following:
+Under Cygwin or Linux, try the following:
 (1) change the run_me.sh script to the latest automake if necessary
 (2) . run_me.sh
-(3) in release folder do
-    ./configure
+(3) ./configure
     make
-(4) run demo.exe    
+(4) run demo.exe or demo
 
