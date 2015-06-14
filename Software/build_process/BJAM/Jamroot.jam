@@ -5,7 +5,10 @@ project demo
                    <define>CONFIG_CHECK_ABOUT_SIGNATURE 
                    <define>PRODUCT_NAME="\"A Super Product\"" 
                    <define>VMAJOR=1 
-                   <define>VMINOR=3g ;
+                   <define>VMINOR=3g 
+    : default-build release ;
     
+install output_files : demo : <install-dependencies>off ;    
+                   
 using gcc ;
 exe demo : align//align state_machine//state_machine main//main common/about.c common/CRC32.c ;

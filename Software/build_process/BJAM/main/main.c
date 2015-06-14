@@ -20,6 +20,7 @@ int main (void)
     DEBUG_PRINT ("==========  FSM test  ===============\n\n");
     FSM_Test();
 #endif	
-	  return 0;
+
+    return 0;
 } // End of main()
 

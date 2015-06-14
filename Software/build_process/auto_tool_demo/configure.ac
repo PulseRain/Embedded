@@ -1,4 +1,4 @@
-AC_INIT(auto_tool_demo, 1.0, pulserain@pulserain.com)
+AC_INIT(auto_tool_demo, 1.0, www.pulserain.com)
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
 # Checks for programs.

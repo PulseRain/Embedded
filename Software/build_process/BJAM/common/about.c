@@ -54,9 +54,8 @@ const U8 about_signature[ABOUT_SIGNATURE_LENGTH] = \
 
 U32 about(U32 about_CRC32)
 {
-    printf ("crc %x\n", generate_CRC32(about_signature, ABOUT_SIGNATURE_LENGTH));
     while(generate_CRC32(about_signature, ABOUT_SIGNATURE_LENGTH)!= about_CRC32);
-       
+
     CONSOLE_PRINT("%s\n", about_signature);
     
     return generate_CRC32(about_signature, ABOUT_SIGNATURE_LENGTH);
