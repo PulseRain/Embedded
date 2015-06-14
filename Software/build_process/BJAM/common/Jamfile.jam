@@ -1,0 +1,13 @@
+project common.o ;
+
+obj about : about.c : <cflags>-O0 ;
+obj CRC32 : CRC32.c ;
+
+path-constant HERE : . ;
+
+make common.o : about CRC32 : @make_common_object ;
+actions make_common_object
+{
+    objdump -s $(>[1]) | perl $(HERE)/about_sig_CRC32.pl > $(HERE)/include/about_CRC32.h
+    ld -r $(>) -o $(<)
+}

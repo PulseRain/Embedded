@@ -5,6 +5,6 @@
 #ifndef ABOUT_CRC32_H
 #define ABOUT_CRC32_H
     #ifndef ABOUT_CRC32
-        #define ABOUT_CRC32 0xa7f239ad
+        #define ABOUT_CRC32 0xcef713b9
     #endif
 #endif

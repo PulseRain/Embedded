@@ -3,7 +3,7 @@ project demo
                    <define>CONFIG_ENABLE_ALIGNMENT_MODULE 
                    <define>CONFIG_ENABLE_STATE_MACHINE_MODULE 
                    <define>CONFIG_CHECK_ABOUT_SIGNATURE 
-                   <define>PRODUCT_NAME="\"A Super Product\"" 
+                   <define>PRODUCT_NAME="\"A SUPER Product\"" 
                    <define>VMAJOR=1 
                    <define>VMINOR=3g 
     : default-build release ;
@@ -11,4 +11,4 @@ project demo
 install output_files : demo : <install-dependencies>off ;    
                    
 using gcc ;
-exe demo : align//align state_machine//state_machine main//main common/about.c common/CRC32.c ;
+exe demo : common//common.o align//align state_machine//state_machine main//main  ;
