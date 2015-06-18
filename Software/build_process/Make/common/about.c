@@ -1,23 +1,27 @@
-/******************************************************************************
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public License
-* as published by the Free Software Foundation; either version 3
-* of the License, or (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-*
-* Remarks:
-*   To generate signature for version number and copyright claim
-*   (Noted by C.Gu on 10/01/2011)
-*
-* References:
-*
-******************************************************************************/
+/*
+//===========================================================================
+// Copyright (c) : Pulserain Technology, LLC. 2015
+//===========================================================================
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+*/
+
 
 #include "common_type.h"
 #include "debug.h"
@@ -31,7 +35,8 @@ const U8 about_signature[ABOUT_SIGNATURE_LENGTH] = \
   "\n===================================================================\n"\
   VERSION_STR(PRODUCT_NAME)"\n"\
   "Version "VERSION_STR(VMAJOR)"."VERSION_STR(VMINOR)"\n"\
-  "Copyright (c) 2xxx ... Corporation. All Rights Reserved.\n"\
+  "Copyright (c) 2099 PulseRain Technology (www.pulserain.com).\n"\
+  "All Rights Reserved.\n"\
   "===================================================================\n\n";
 
 
@@ -55,7 +60,7 @@ const U8 about_signature[ABOUT_SIGNATURE_LENGTH] = \
 U32 about(U32 about_CRC32)
 {
     while(generate_CRC32(about_signature, ABOUT_SIGNATURE_LENGTH)!= about_CRC32);
-       
+
     CONSOLE_PRINT("%s\n", about_signature);
     
     return generate_CRC32(about_signature, ABOUT_SIGNATURE_LENGTH);
@@ -78,11 +83,75 @@ U32 about(U32 about_CRC32)
 
 void logo_print()
 {
-    CONSOLE_PRINT("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
-	CONSOLE_PRINT("$$                             $$\n");
-	CONSOLE_PRINT("$$$$$                       $$$$$\n");
-	CONSOLE_PRINT("$$$$$$$$$$$$$$     $$$$$$$$$$$$$$\n");
-	CONSOLE_PRINT("$$$$$                       $$$$$\n");
-	CONSOLE_PRINT("$$                             $$\n");
-    CONSOLE_PRINT("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+    CONSOLE_PRINT("  \n");
+    CONSOLE_PRINT("                                *************** \n");
+    CONSOLE_PRINT("                            *********************** \n");
+    CONSOLE_PRINT("                          **************************** \n");
+    CONSOLE_PRINT("                       ********************************* \n");
+    CONSOLE_PRINT("                      *************************      **** \n");
+    CONSOLE_PRINT("                    **************************        ***** \n");
+    CONSOLE_PRINT("                   **************************   ****   ****** \n");
+    CONSOLE_PRINT("                 ****************************  ******   ****** \n");
+    CONSOLE_PRINT("                ****************************  ********  ******* \n");
+    CONSOLE_PRINT("               *****************************  ********   ******* \n");
+    CONSOLE_PRINT("              *****************************  **********  ******** \n");
+    CONSOLE_PRINT("             ******************************  ***** ****  ********* \n");
+    CONSOLE_PRINT("            *******************************  ****  ****   ********* \n");
+    CONSOLE_PRINT("           *******************************  *****  *****  ********** \n");
+    CONSOLE_PRINT("           *******************************  *****   ****  ********** \n");
+    CONSOLE_PRINT("          ********************************  ****    ****  *********** \n");
+    CONSOLE_PRINT("         *********************************  ****    *****  *********** \n");
+    CONSOLE_PRINT("         ********************************  *****    *****  *********** \n");
+    CONSOLE_PRINT("        *********************************  *****     ****  ************ \n");
+    CONSOLE_PRINT("        *********************************  ****   *  ****  ************ \n");
+    CONSOLE_PRINT("       **********************************  ****  **  ****  ************* \n");
+    CONSOLE_PRINT("       **********************************  ****  **  *****  ************ \n");
+    CONSOLE_PRINT("      **********************************  *****  **  *****  ************* \n");
+    CONSOLE_PRINT("      **********************************  *****  **   ****  ************* \n");
+    CONSOLE_PRINT("      **********************************  ****  ****  ****  ************* \n");
+    CONSOLE_PRINT("     ***********************************  ****  ****  ****  ************** \n");
+    CONSOLE_PRINT("     ***********************************  ****  ****  ****  ************** \n");
+    CONSOLE_PRINT("     ***********************************  ****  ****  ***** ************** \n");
+    CONSOLE_PRINT("     ***********************************  ****  ****  *****  ************* \n");
+    CONSOLE_PRINT("     **********************************  *****  ****   ****  ************** \n");
+    CONSOLE_PRINT("    ***********************************  ****  *****   ****  ************** \n");
+    CONSOLE_PRINT("    ***********************************  ****  ******  ****  ************** \n");
+    CONSOLE_PRINT("    ***********************************  ****  ******  ****  ************** \n");
+    CONSOLE_PRINT("    ***********************************  ****  ******  ****  ************** \n");
+    CONSOLE_PRINT("    **********************************  *****  ******  ****  ************** \n");
+    CONSOLE_PRINT("    **********************************  *****  ******  *****  ************* \n");
+    CONSOLE_PRINT("    **********************************  ****  *******  *****  ************* \n");
+    CONSOLE_PRINT("    **********************************  ****  ********  ****  ************* \n");
+    CONSOLE_PRINT("    **********************************  ****  ********  ****  ************* \n");
+    CONSOLE_PRINT("    *********************************  *****  ********  ****  ************* \n");
+    CONSOLE_PRINT("    *********************************  ****   ********  *****  ************ \n");
+    CONSOLE_PRINT("     ********************************  ****  **********  ****  *********** \n");
+    CONSOLE_PRINT("     ********************************  ****  **********  ****  *********** \n");
+    CONSOLE_PRINT("     *******************************  *****  **********  *****  ********** \n");
+    CONSOLE_PRINT("     *******************************  ****   **********  *****  ********** \n");
+    CONSOLE_PRINT("      ******************************  ****  ************  ****   ******** \n");
+    CONSOLE_PRINT("      *****************************  *****  ************  *****  ******** \n");
+    CONSOLE_PRINT("      ***********         *********  ****   ************   ****   ******* \n");
+    CONSOLE_PRINT("       ********             ******  *****  **************  *****  ****** \n");
+    CONSOLE_PRINT("       ******    ********    *****  *****  **************   ****   ***** \n");
+    CONSOLE_PRINT("         *     ************        *****  ****************  *****   *** \n");
+    CONSOLE_PRINT("             ****************      *****  ****************   *****   ** \n");
+    CONSOLE_PRINT("            ******************   ******  ******************  ****** \n");
+    CONSOLE_PRINT("         **********     **************   *******************  ****** \n");
+    CONSOLE_PRINT("          ******          ************  ********************   ****** \n");
+    CONSOLE_PRINT("           ****    *****   **** *****   *********************   **** \n");
+    CONSOLE_PRINT("            *    ********    ******   ************************   ** \n");
+    CONSOLE_PRINT("               ***********           **************************   * \n");
+    CONSOLE_PRINT("              **************       ***************************** \n");
+    CONSOLE_PRINT("              *************************************************** \n");
+    CONSOLE_PRINT("               ************************************************* \n");
+    CONSOLE_PRINT("                *********************************************** \n");
+    CONSOLE_PRINT("                 ********************************************* \n");
+    CONSOLE_PRINT("                   ****************************************** \n");
+    CONSOLE_PRINT("                    *************************************** \n");
+    CONSOLE_PRINT("                      ************************************ \n");
+    CONSOLE_PRINT("                       ********************************* \n");
+    CONSOLE_PRINT("                         ***************************** \n");
+    CONSOLE_PRINT("                            *********************** \n");
+    CONSOLE_PRINT("                                *************** \n");
 } // End of logo_print()
