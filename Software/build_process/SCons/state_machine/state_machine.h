@@ -22,15 +22,21 @@
 // SOFTWARE.
 */
 
+#ifndef STATE_MACHINE_H
+#define STATE_MACHINE_H
 
-#ifndef ABOUT_H
-#define ABOUT_H
- 
-#include "common_type.h"
- 
-#define ABOUT_SIGNATURE_LENGTH          512
 
-extern U32 about(U32 about_CRC32);
-extern void logo_print();
+enum FSM_State {
+    STATE_INIT,
+    STATE_PLAN,
+    STATE_CONTROL,
+    STATE_EXECUTE,
+    STATE_CLOSE
+};
+
+
+extern enum FSM_State FSM(int input);
+
+extern void FSM_Test();
 
 #endif

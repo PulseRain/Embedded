@@ -28,7 +28,7 @@
  
 #include "common_type.h"
  
-#define ABOUT_SIGNATURE_LENGTH          512
+#define ABOUT_SIGNATURE_LENGTH          256
 
 extern U32 about(U32 about_CRC32);
 extern void logo_print();

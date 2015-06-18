@@ -1,0 +1,100 @@
+import atexit
+from types import *
+
+Progress(['-\r', '\\\r', '|\r', '/\r'], interval=5)
+Decider('MD5')
+SetOption('implicit_cache', 0)
+
+
+
+include = [".", "#common/include"]
+cpp_flags = ['-std=c++11']
+sub_projects = ['align', 'common', 'table_gen']
+output_dir = '#output_files'
+
+
+vars = Variables(None)
+
+vars.AddVariables( ('VMAJOR', 'major version', '1'),
+                   ('VMINOR', 'minor version', '3g'), 
+                   ('PRODUCT_NAME', 'Product Name', 'A SUPER Product'), 
+                   BoolVariable('CONFIG_CHECK_ABOUT_SIGNATURE',       'About Signature enable/disable', 1),
+                   BoolVariable('CONFIG_ENABLE_ALIGNMENT_MODULE',     'align module enable/disable', 1),
+                   BoolVariable('CONFIG_ENABLE_STATE_MACHINE_MODULE', 'state machine module enable/disable', 1)
+                 )
+
+env = Environment(variables = vars)
+                  
+unknown = vars.UnknownVariables()
+if unknown:
+    print "Unknown Variables:", unknown.keys()
+    Exit(1)
+ 
+    
+default_env = DefaultEnvironment()
+default_env.AppendUnique (CPPPATH = include)
+default_env.AppendUnique (CXXFLAGS = cpp_flags)
+
+cppdefines = {}    
+for key_iter in vars.keys():
+    if (type(env[key_iter]) is BooleanType):
+        if (env[key_iter]):
+            default_env.AppendUnique (CCFLAGS = ['-D' + key_iter])
+    else:
+        cppdefines[key_iter] = env[key_iter]
+
+default_env.AppendUnique (CPPDEFINES = cppdefines)    
+               
+
+for subdir in sub_projects:
+    output_sub_dir = output_dir + '/' + subdir
+    o = SConscript('%s/SConscript' %subdir, 
+                   variant_dir = output_sub_dir, duplicate = 0)
+ 
+
+
+
+## at exit, report failure
+
+def bf_to_str(bf):
+    """Convert an element of GetBuildFailures() to a string
+    in a useful way."""
+    import SCons.Errors
+    if bf is None: # unknown targets product None in list
+        return '(unknown tgt)'
+    elif isinstance(bf, SCons.Errors.StopError):
+        return str(bf)
+    elif bf.node:
+        return str(bf.node) + ': ' + bf.errstr
+    elif bf.filename:
+        return bf.filename + ': ' + bf.errstr
+    return 'unknown failure: ' + bf.errstr
+import atexit
+
+def build_status():
+    """Convert the build status to a 2-tuple, (status, msg)."""
+    from SCons.Script import GetBuildFailures
+    bf = GetBuildFailures()
+    if bf:
+        # bf is normally a list of build failures; if an element is None,
+        # it's because of a target that scons doesn't know anything about.
+        status = 'failed'
+        failures_message = "\n".join(["Failed building %s" % bf_to_str(x)
+                           for x in bf if x is not None])
+    else:
+        # if bf is None, the build completed successfully.
+        status = 'ok'
+        failures_message = ''
+    return (status, failures_message)
+
+def display_build_status():
+    """Display the build status.  Called by atexit.
+    Here you could do all kinds of complicated things."""
+    status, failures_message = build_status()
+    if status == 'failed':
+       print "========>FAILED!!!!"  # could display alert, ring bell, etc.
+    elif status == 'ok':
+       print "\n========> Build succeeded!"
+    print failures_message
+
+atexit.register(display_build_status)

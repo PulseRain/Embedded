@@ -3,7 +3,7 @@
 # Afterwards, it will generate a header file to define "ABOUT_CRC32"
 
 
-$len_of_about_sig = 512;
+$len_of_about_sig = 256;
 $objdump_print_width = 16;
 
 $find_rdata_sec = 0;

@@ -23,14 +23,12 @@
 */
 
 
-#ifndef ABOUT_H
-#define ABOUT_H
- 
-#include "common_type.h"
- 
-#define ABOUT_SIGNATURE_LENGTH          512
+#ifndef ALIGN_H
+#define ALIGN_H
 
-extern U32 about(U32 about_CRC32);
-extern void logo_print();
+#include "common_type.h"
+#include "debug.h"
+
+extern void alignment_test();  
 
 #endif

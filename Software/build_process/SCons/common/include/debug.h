@@ -99,7 +99,8 @@
         ((long)(long*)&(((type *)0)->field)) 
         
 
-//#define TYPE_ALIGNMENT( t ) FIELD_OFFSET( struct { char x; t test; }, test )
+//#define TYPE_ALIGNMENT( t ) \
+//        FIELD_OFFSET( struct { char x; t test; }, test )
 
 #define TYPE_ALIGNMENT( t ) \
         ((long)(sizeof(struct { char x; t test; }) - sizeof(t)))

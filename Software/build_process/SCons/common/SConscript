@@ -1,0 +1,3 @@
+src_files = ['about.c', 'CRC32.c']
+Object (src_files)
+

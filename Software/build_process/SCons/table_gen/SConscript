@@ -1,0 +1,6 @@
+
+src_files = ['Gen_Lookup_Table.cpp']
+
+env = DefaultEnvironment()
+Object (src_files, CXXFLAGS = env['CXXFLAGS'] + ['-ftemplate-depth=2048'])
+

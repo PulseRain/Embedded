@@ -112,6 +112,7 @@ void FSM_Test()
 {
     int FSM_input;
     unsigned int temp;
+    unsigned int seed;
     srand(time(0));
 
     do {
