@@ -22,12 +22,13 @@
 // SOFTWARE.
 */
 
+
 #ifndef ABOUT_H
 #define ABOUT_H
  
 #include "common_type.h"
  
-#define ABOUT_SIGNATURE_LENGTH          256
+#define ABOUT_SIGNATURE_LENGTH          512
 
 extern U32 about(U32 about_CRC32);
 extern void logo_print();

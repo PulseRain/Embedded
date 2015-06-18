@@ -22,6 +22,7 @@
 // SOFTWARE.
 */
 
+
 #include "stdio.h"
 #include "align.h"
 
@@ -63,24 +64,24 @@ C_ASSERT(TYPE_ALIGNMENT(STRUCT_NOT_PACKED) == 4);
 void alignment_test()
 {
     
-    printf ("sizeof(STRUCT_PACKED) = %d \n", sizeof(STRUCT_PACKED));
-    printf ("sizeof(STRUCT_NOT_PACKED) = %d \n", sizeof(STRUCT_NOT_PACKED));
+    printf ("sizeof(STRUCT_PACKED) = %d \n", (int)sizeof(STRUCT_PACKED));
+    printf ("sizeof(STRUCT_NOT_PACKED) = %d \n", (int)sizeof(STRUCT_NOT_PACKED));
     
-    printf ("sizeof(MANUAL_PADDING) = %d \n", sizeof(STRUCT_MANUAL_PADDING));
+    printf ("sizeof(MANUAL_PADDING) = %d \n", (int)sizeof(STRUCT_MANUAL_PADDING));
     
-    printf ("field_offset STRUCT_PACKED b = %d\n", FIELD_OFFSET(STRUCT_PACKED, b));
-    printf ("field_offset STRUCT_NOT_PACKED b = %d\n", FIELD_OFFSET(STRUCT_NOT_PACKED, b));
-    printf ("field_offset STRUCT_MANUAL_PADDING b = %d\n", FIELD_OFFSET(STRUCT_MANUAL_PADDING, b));
-    
-    
+    printf ("field_offset STRUCT_PACKED b = %d\n", (int)FIELD_OFFSET(STRUCT_PACKED, b));
+    printf ("field_offset STRUCT_NOT_PACKED b = %d\n", (int)FIELD_OFFSET(STRUCT_NOT_PACKED, b));
+    printf ("field_offset STRUCT_MANUAL_PADDING b = %d\n", (int)FIELD_OFFSET(STRUCT_MANUAL_PADDING, b));
     
     
     
     
-    printf ("type alignment STRUCT_PACKED  = %d\n", TYPE_ALIGNMENT(STRUCT_PACKED));
-    printf ("type alignment STRUCT_NOT_PACKED  = %d\n", TYPE_ALIGNMENT(STRUCT_NOT_PACKED));
-    printf ("type alignment STRUCT_MANUAL_PADDING  = %d\n", TYPE_ALIGNMENT(STRUCT_MANUAL_PADDING));
     
-    printf ("sizeof(long) = %d\n", sizeof(long));
+    
+    printf ("type alignment STRUCT_PACKED  = %d\n", (int)TYPE_ALIGNMENT(STRUCT_PACKED));
+    printf ("type alignment STRUCT_NOT_PACKED  = %d\n", (int)TYPE_ALIGNMENT(STRUCT_NOT_PACKED));
+    printf ("type alignment STRUCT_MANUAL_PADDING  = %d\n", (int)TYPE_ALIGNMENT(STRUCT_MANUAL_PADDING));
+    
+    printf ("sizeof(long) = %d\n", (int)sizeof(long));
     
 }
