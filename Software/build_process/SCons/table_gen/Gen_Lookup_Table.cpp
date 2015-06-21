@@ -22,6 +22,20 @@
 // SOFTWARE.
 */
 
+
+/****************************************************************************
+* References:
+*
+* [1] C++11: Create 0 to N constexpr array in C++, Stackoverflow
+*     http://stackoverflow.com/questions/19019252/c11-create-0-to-n-constexpr-array-in-c
+*
+* [2] Generating Lookup Table Constant Expressions in C++11, 
+*     Joshua Napoli's blog, The Critical Section, Agile software development and C++ syntactic delights,
+*     http://joshuanapoli.com/blog/2012/12/generating-lookup-table-constant-expressions-in-c11/
+*
+*****************************************************************************/
+
+
 #include <cstdint>
 #include <array>
 #include <iostream>
