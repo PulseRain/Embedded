@@ -25,7 +25,9 @@
 
 `default_nettype none
 
+module fsm_template (
 
+);
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // FSM
@@ -98,6 +100,9 @@
             endcase
               
         end : state_machine_comb
+
+		
+endmodule fsm_template
 
 `default_nettype wire
         
