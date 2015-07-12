@@ -24,4 +24,8 @@ cmake_minimum_required (VERSION 3.0)
 project (demo)
   
 
+add_definitions(-DVMAJOR=1)
+add_definitions(-DVMINOR=3g)
+add_definitions("-DPRODUCT_NAME=A SUPER Product")
+
 
