@@ -28,4 +28,20 @@ add_definitions(-DVMAJOR=1)
 add_definitions(-DVMINOR=3g)
 add_definitions("-DPRODUCT_NAME=A SUPER Product")
 
+add_definitions(-DCONFIG_CHECK_ABOUT_SIGNATURE)
+add_definitions(-DCONFIG_ENABLE_ALIGNMENT_MODULE)
+add_definitions(-DCONFIG_ENABLE_STATE_MACHINE_MODULE)
+
+add_subdirectory(align)
+add_subdirectory(common)
+add_subdirectory(state_machine)
+add_subdirectory(main)
+
+add_dependencies(main common)
+add_dependencies(main about_CRC32)
+
+set(CMAKE_C_FLAGS  "-O3")
+
+add_executable(demo $<TARGET_OBJECTS:main> $<TARGET_OBJECTS:common> $<TARGET_OBJECTS:align> $<TARGET_OBJECTS:state_machine>)
+
 
