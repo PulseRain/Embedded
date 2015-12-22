@@ -41,7 +41,7 @@ include      = [".", "#common/include", "#align", "#state_machine"]
 c_flags      = []
 cpp_flags    = ['-std=c++11']
 cc_flags     = ['-O3', '-Wall']
-sub_projects = ['state_machine', 'aaa_main', 'align', 'common', 'table_gen']
+sub_projects = ['state_machine', 'main', 'align', 'common', 'table_gen']
 output_dir   = '#output_files'
 
 #=============================================================================
