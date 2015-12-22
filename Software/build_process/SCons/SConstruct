@@ -24,6 +24,7 @@
 # SConstruct 
 ############################################################################# 
 
+import os
 import atexit
 from types import *
 
@@ -74,6 +75,15 @@ default_env.AppendUnique (CPPPATH = include)
 default_env.AppendUnique (CFLAGS = c_flags)
 default_env.AppendUnique (CXXFLAGS = cpp_flags)
 default_env.AppendUnique (CCFLAGS = cc_flags)
+
+#=============================================================================
+# setup cross compiler here
+#=============================================================================
+
+## default_env.Replace (CC="sdcc")
+## default_env.Replace (CXX="arm-g++")
+## default_env.Append(ENV = {'PATH' : os.environ['PATH']})
+
 cppdefines = {}    
 for key_iter in vars.keys():
 
