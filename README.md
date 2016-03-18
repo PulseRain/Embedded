@@ -6,10 +6,10 @@ This repository contains the companion material for the book
 
 The cross-reference between folders and book chapters is as following:
 ### /Labs
-    All the code used for Labs in the book
+    Labs in Chapter 2, Power-on and Bootloader
 ### /Hardware/usb4fun
     USB code mainly for Chapter 5 - Bus Architecture
-    - RS232_Loop: Example for RS232 Loop, for Cypress EZ-USB FX2LP™ USB Microcontroller
+    - RS232_Loop: Example of RS232 Loop, for Cypress EZ-USB FX2LP™ USB Microcontroller
     - Inf file for USB CDC
     - WinUSB Application and Install Disk. works with Visual Studio Express
     
