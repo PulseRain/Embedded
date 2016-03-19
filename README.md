@@ -1,5 +1,5 @@
 # Building Embedded Systems 
-##   - Programmable Hardware 
+## --- *Programmable Hardware*
 
 This repository contains the companion material for the book
 "Building Embedded Systems - Programmable Hardware" 
