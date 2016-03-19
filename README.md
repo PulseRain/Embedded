@@ -1,11 +1,14 @@
-# Building Embedded Systems - Programmable HW 
+# Building Embedded Systems 
+##   - Programmable Hardware 
 
 This repository contains the companion material for the book
 "Building Embedded Systems - Programmable Hardware" 
 
 The cross-reference between folders and book chapters is as following:
+
 ### /Labs
     Labs in Chapter 2, Power-on and Bootloader
+    
 ### /Hardware/usb4fun
     USB code mainly for Chapter 5 - Bus Architecture
     - RS232_Loop: Example of RS232 Loop, for Cypress EZ-USB FX2LP™ USB Microcontroller
