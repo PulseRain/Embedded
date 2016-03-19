@@ -1,4 +1,4 @@
-# Building Embedded Systems - Programmable Hardware 
+# Building Embedded Systems - Programmable HW 
 
 This repository contains the companion material for the book
 "Building Embedded Systems - Programmable Hardware" 
@@ -23,8 +23,7 @@ The cross-reference between folders and book chapters is as following:
 
     code for Chapter 8, Building and Deployment
     
-### /Hardware/Synchronizer
-### /Hardware/FSM_template.sv
+### /Hardware/Synchronizer; /Hardware/FSM_template.sv
     code for Chapter 9, Field-Programmable Gate Arrays
     
 ### /Math
