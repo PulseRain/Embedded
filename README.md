@@ -1,4 +1,4 @@
-# Building Embedded Systems 
+# [Building Embedded Systems](http://pulserain.github.io/Embedded/) 
 ## --- *Programmable Hardware*
 
 This repository contains the companion material for the book
